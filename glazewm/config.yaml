@@ -1,0 +1,212 @@
+general:
+  startup_commands: [ # Commands AFTER startup
+    'shell-exec zebar',
+    'focus --workspace 2',
+    'focus --workspace 3',
+    'focus --workspace 4',
+    'focus --workspace 5',
+    'focus --workspace 6',
+    'focus --workspace 7',
+    'focus --workspace 8',
+    'focus --workspace 9',
+    'focus --workspace 0',
+    'focus --workspace 1'
+  ] 
+  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F'] # Commands BEFORE shutdown
+  config_reload_commands: []
+  focus_follows_cursor: true
+  toggle_workspace_on_refocus: false # Switch between the previously focused workspace when focusing the current workspace
+
+  cursor_jump:
+    enabled: true
+    trigger: 'window_focus'
+
+  hide_method: 'cloak' # 'cloak' has no animation, but works fine, 'hide' has a brief animation, but with stability problems
+  show_all_in_taskbar: true # Show all apps from all workspaces in Windows native taskbar
+
+gaps:
+  scale_with_dpi: true
+  inner_gap: '7px' # Between windows
+  outer_gap: # Between the windows and the screen edge
+    top: '35px'
+    right: '7px'
+    bottom: '7px'
+    left: '7px'
+
+window_effects:
+  focused_window:
+    border:
+      enabled: true
+      color: '#c084fc'
+    hide_title_bar: # Can cause rendering issues
+      enabled: true
+    corner_style:
+      enabled: false
+      style: 'square' # 'square', 'rounded', 'small_rounded'
+  other_windows:
+    border:
+      enabled: true
+      color: '#77727a'
+    hide_title_bar:
+      enabled: true
+    corner_style:
+      enabled: false
+      style: 'square'
+
+window_behavior:
+  initial_state: 'tiling' # 'tiling', 'floating'
+  state_defaults:
+    floating:
+      centered: true
+      shown_on_top: true
+
+    fullscreen:
+      maximized: false # Maximize if possible. If not, then it will be fullscreen'ed normally instead
+      shown_on_top: true
+
+workspaces:
+  - name: '1'
+    keep_alive: true
+  - name: '2'
+    keep_alive: true
+  - name: '3'
+    keep_alive: true
+  - name: '4'
+    keep_alive: true
+  - name: '4'
+    keep_alive: true
+  - name: '5'
+    keep_alive: true
+  - name: '6'
+    keep_alive: true
+  - name: '7'
+    keep_alive: true
+  - name: '8'
+    keep_alive: true
+  - name: '9'
+    keep_alive: true
+  - name: '0'
+    keep_alive: true
+
+window_rules:
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: 'zebar' }
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' } # Ignore picture-in-picture windows for browsers
+        window_class: { regex: 'Chrome_WidgetWin_1|MozillaDialogClass' }
+      - window_process: { equals: 'PowerToys' }
+        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
+      - window_process: { equals: 'PowerToys' }
+        window_title: { regex: '.*? - Peek' }
+      - window_process: { equals: 'Lively' }
+        window_class: { regex: 'HwndWrapper' }
+
+binding_modes:
+  - name: 'resize' # When enabled, the focused window can be resized via arrow keys or HJKL
+    keybindings:
+      - commands: ['resize --width -2%']
+        bindings: ['h', 'left']
+      - commands: ['resize --width +2%']
+        bindings: ['l', 'right']
+      - commands: ['resize --height +2%']
+        bindings: ['k', 'up']
+      - commands: ['resize --height -2%']
+        bindings: ['j', 'down']
+      - commands: ['wm-disable-binding-mode --name resize']
+        bindings: ['escape', 'enter']
+
+keybindings:
+  # Change focus
+  - commands: ['focus --direction left']
+    bindings: ['lwin+h', 'lwin+left']
+  - commands: ['focus --direction right']
+    bindings: ['lwin+l', 'lwin+right']
+  - commands: ['focus --direction up']
+    bindings: ['lwin+k', 'lwin+up']
+  - commands: ['focus --direction down']
+    bindings: ['lwin+j', 'lwin+down']
+
+  # Move focused window
+  - commands: ['move --direction left']
+    bindings: ['lwin+alt+h', 'lwin+shift+left']
+  - commands: ['move --direction right']
+    bindings: ['lwin+alt+l', 'lwin+shift+right']
+  - commands: ['move --direction up']
+    bindings: ['lwin+alt+k', 'lwin+shift+up']
+  - commands: ['move --direction down']
+    bindings: ['lwin+alt+j', 'lwin+shift+down']
+
+  # Resize focused window
+  - commands: ['wm-enable-binding-mode --name resize']
+    bindings: ['lwin+r']
+
+  # Misc
+  - commands: ['toggle-tiling-direction']
+    bindings: ['lwin+d']
+
+  - commands: ['toggle-floating --centered']
+    bindings: ['ctrl+space']
+
+  - commands: ['toggle-fullscreen']
+    bindings: ['lwin+f']
+
+  - commands: ['close']
+    bindings: ['lwin+q']
+
+  - commands: ['wm-exit']
+    bindings: ['ctrl+lwin+alt+e']
+
+  - commands: ['shell-exec wezterm-gui']
+    bindings: ['lwin+enter']
+
+  # Go to another workspace
+  - commands: ['focus --workspace 1']
+    bindings: ['lwin+1']
+  - commands: ['focus --workspace 2']
+    bindings: ['lwin+2']
+  - commands: ['focus --workspace 3']
+    bindings: ['lwin+3']
+  - commands: ['focus --workspace 4']
+    bindings: ['lwin+4']
+  - commands: ['focus --workspace 5']
+    bindings: ['lwin+5']
+  - commands: ['focus --workspace 6']
+    bindings: ['lwin+6']
+  - commands: ['focus --workspace 7']
+    bindings: ['lwin+7']
+  - commands: ['focus --workspace 8']
+    bindings: ['lwin+8']
+  - commands: ['focus --workspace 9']
+    bindings: ['lwin+9']
+  - commands: ['focus --workspace 0']
+    bindings: ['lwin+0']
+
+  # Move workspace to another monitor
+  - commands: ['move-workspace --direction left']
+    bindings: ['lwin+left']
+  - commands: ['move-workspace --direction right']
+    bindings: ['lwin+right']
+  - commands: ['move-workspace --direction up']
+    bindings: ['lwin+up']
+  - commands: ['move-workspace --direction down']
+    bindings: ['lwin+down']
+
+  # Move window to another workspace
+  - commands: ['move --workspace 1', 'focus --workspace 1']
+    bindings: ['lwin+shift+1']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
+    bindings: ['lwin+shift+2']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
+    bindings: ['lwin+shift+3']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
+    bindings: ['lwin+shift+4']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
+    bindings: ['lwin+shift+5']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
+    bindings: ['lwin+shift+6']
+  - commands: ['move --workspace 7', 'focus --workspace 7']
+    bindings: ['lwin+shift+7']
+  - commands: ['move --workspace 8', 'focus --workspace 8']
+    bindings: ['lwin+shift+8']
+  - commands: ['move --workspace 9', 'focus --workspace 9']
+    bindings: ['lwin+shift+9']
