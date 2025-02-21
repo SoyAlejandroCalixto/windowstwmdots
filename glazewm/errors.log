@@ -2,3 +2,4 @@
 [2m2025-01-24T23:20:00.308686Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps.outer_gap: missing field `left` at line 30 column 13
 [2m2025-01-24T23:20:51.602498Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps.outer_gap: missing field `left` at line 30 column 13
 [2m2025-01-24T23:22:21.490861Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps.outer_gap: invalid type: string "7px", expected struct RectDelta at line 30 column 14
+[2m2025-02-21T10:23:13.310916Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Workspace with name '2' doesn't exist or is already active.

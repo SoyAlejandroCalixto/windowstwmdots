@@ -1,16 +1,6 @@
 general:
   startup_commands: [ # Commands AFTER startup
     'shell-exec zebar',
-    'focus --workspace 2',
-    'focus --workspace 3',
-    'focus --workspace 4',
-    'focus --workspace 5',
-    'focus --workspace 6',
-    'focus --workspace 7',
-    'focus --workspace 8',
-    'focus --workspace 9',
-    'focus --workspace 0',
-    'focus --workspace 1'
   ] 
   shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F'] # Commands BEFORE shutdown
   config_reload_commands: []
@@ -66,27 +56,25 @@ window_behavior:
 
 workspaces:
   - name: '1'
-    keep_alive: true
+    display_name: '󰫶'
   - name: '2'
-    keep_alive: true
+    display_name: '󱂉'
   - name: '3'
-    keep_alive: true
+    display_name: '󱂊'
   - name: '4'
-    keep_alive: true
-  - name: '4'
-    keep_alive: true
+    display_name: '󱂋'
   - name: '5'
-    keep_alive: true
+    display_name: '󰬃'
   - name: '6'
-    keep_alive: true
+    display_name: '󱂍'
   - name: '7'
-    keep_alive: true
+    display_name: '󱂎'
   - name: '8'
-    keep_alive: true
+    display_name: '󱂏'
   - name: '9'
-    keep_alive: true
+    display_name: '󱂐'
   - name: '0'
-    keep_alive: true
+    display_name: '󰬅'
 
 window_rules:
   - commands: ['ignore']
@@ -210,3 +198,5 @@ keybindings:
     bindings: ['lwin+shift+8']
   - commands: ['move --workspace 9', 'focus --workspace 9']
     bindings: ['lwin+shift+9']
+  - commands: ['move --workspace 0', 'focus --workspace 0']
+    bindings: ['lwin+shift+0']

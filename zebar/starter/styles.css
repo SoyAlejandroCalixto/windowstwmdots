@@ -2,6 +2,8 @@
 
 * {
     font-size: 16px;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -65,16 +67,14 @@ body,
     width: 24px;
     border: none;
     cursor: pointer;
-    color: #c084fc;
-    font-size: 16px;
+    color: #77727a;
+    font-size: 25px;
 
     &.empty {
-        color: #77727a;
-        font-size: 6px;
     }
     &.focused {
         color: #60a5fa;
-        font-size: 16px;
+        font-size: 25px;
     }
 }
 

@@ -80,7 +80,7 @@ function App() {
                 }
                 key={workspace.name}
               >
-                {workspace.hasFocus ? '' : (workspace.children.length > 0 ? '' : '')}
+                {workspace.displayName}
               </button>
             ))}
           </div>
