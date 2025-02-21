@@ -135,7 +135,7 @@ keybindings:
     bindings: ['lwin+d']
 
   - commands: ['toggle-floating --centered']
-    bindings: ['ctrl+space']
+    bindings: ['alt+space']
 
   - commands: ['toggle-fullscreen']
     bindings: ['lwin+f']
