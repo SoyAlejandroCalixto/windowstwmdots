@@ -1,8 +1,10 @@
 general:
   startup_commands: [ # Commands AFTER startup
     'shell-exec zebar',
-  ] 
-  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F'] # Commands BEFORE shutdown
+  ]
+  shutdown_commands: [ # Commands BEFORE shutdown
+    'shell-exec taskkill /IM zebar.exe /F'
+  ]
   config_reload_commands: []
   focus_follows_cursor: true
   toggle_workspace_on_refocus: false # Switch between the previously focused workspace when focusing the current workspace
@@ -106,23 +108,23 @@ binding_modes:
 keybindings:
   # Change focus
   - commands: ['focus --direction left']
-    bindings: ['lwin+h', 'lwin+left']
+    bindings: ['lwin+shift+h', 'lwin+shift+left']
   - commands: ['focus --direction right']
-    bindings: ['lwin+l', 'lwin+right']
+    bindings: ['lwin+shift+l', 'lwin+shift+right']
   - commands: ['focus --direction up']
-    bindings: ['lwin+k', 'lwin+up']
+    bindings: ['lwin+shift+k', 'lwin+shift+up']
   - commands: ['focus --direction down']
-    bindings: ['lwin+j', 'lwin+down']
+    bindings: ['lwin+shift+j', 'lwin+shift+down']
 
   # Move focused window
   - commands: ['move --direction left']
-    bindings: ['lwin+alt+h', 'lwin+shift+left']
+    bindings: ['lwin+alt+h', 'lwin+alt+left']
   - commands: ['move --direction right']
-    bindings: ['lwin+alt+l', 'lwin+shift+right']
+    bindings: ['lwin+alt+l', 'lwin+alt+right']
   - commands: ['move --direction up']
-    bindings: ['lwin+alt+k', 'lwin+shift+up']
+    bindings: ['lwin+alt+k', 'lwin+alt+up']
   - commands: ['move --direction down']
-    bindings: ['lwin+alt+j', 'lwin+shift+down']
+    bindings: ['lwin+alt+j', 'lwin+alt+down']
 
   # Resize focused window
   - commands: ['wm-enable-binding-mode --name resize']
