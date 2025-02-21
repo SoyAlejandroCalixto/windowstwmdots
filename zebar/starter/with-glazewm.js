@@ -3,6 +3,7 @@ import { createRoot } from 'https://esm.sh/react-dom@18/client?dev';
 import * as zebar from 'https://esm.sh/zebar@2';
 
 const providers = zebar.createProviderGroup({
+  media: { type: 'media' },
   network: { type: 'network' },
   glazewm: { type: 'glazewm' },
   cpu: { type: 'cpu' },
@@ -64,6 +65,38 @@ function App() {
     <div className="app">
       <div className="left">
 
+        {output.media && (
+          <div className="spotify"
+            onClick={() => {
+              output.media.togglePlayPause()
+            }}
+            onWheel={(e) => {
+              if (e.deltaY > 0) {
+                output.media.previous()
+              } else {
+                output.media.next()
+              }
+            }}
+            >{
+              output.media.allSessions.map(session => {
+                try {
+                  if (session.sessionId.startsWith("Spotify")) {
+                    document.querySelector('.spotify').classList.remove('notPlayingSpotify')
+                    if (session.title.length > 30) {
+                      return ' ' + session.title.substring(0, 30) + "..."
+                    } else {
+                      return ' ' + session.title
+                    }
+                  } else {
+                    document.querySelector('.spotify').classList.add('notPlayingSpotify')
+                  }
+                } catch (e) {
+                  return
+                }
+              })
+            }</div>
+        )}
+
       </div>
 
       <div className="center">
@@ -86,7 +119,7 @@ function App() {
           </div>
         )}
       </div>
-
+      
       <div className="right">
         {output.network && (
           <div className="network">
