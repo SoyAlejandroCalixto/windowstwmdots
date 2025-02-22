@@ -31,7 +31,7 @@ window_effects:
       enabled: true
       color: '#c084fc'
     hide_title_bar: # Can cause rendering issues
-      enabled: true
+      enabled: false
     corner_style:
       enabled: false
       style: 'square' # 'square', 'rounded', 'small_rounded'
@@ -40,7 +40,7 @@ window_effects:
       enabled: true
       color: '#77727a'
     hide_title_bar:
-      enabled: true
+      enabled: false
     corner_style:
       enabled: false
       style: 'square'
