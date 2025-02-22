@@ -2,6 +2,7 @@
 
 * {
     font-size: 16px;
+    user-select: none;
 }
 
 body {
@@ -113,6 +114,7 @@ body,
     background: #4ade80;
     color: #000000;
     border-radius: 0 0 14px 0;
+    cursor: pointer;
 }
 .notPlayingSpotify {
     display: none;

@@ -68,33 +68,41 @@ function App() {
         {output.media && (
           <div className="spotify"
             onClick={() => {
-              output.media.togglePlayPause()
-            }}
-            onWheel={(e) => {
-              if (e.deltaY > 0) {
-                output.media.previous()
-              } else {
-                output.media.next()
+              if (output.media.currentSession?.sessionId.startsWith("Spotify")) {
+                output.media.togglePlayPause()
               }
             }}
-            >{
+            onWheel={(e) => {
+              if (output.media.currentSession?.sessionId.startsWith("Spotify")) {
+                if (e.deltaY > 0) {
+                  output.media.previous()
+                } else {
+                  output.media.next()
+                }
+              }
+            }}
+          >
+            {
               output.media.allSessions.map(session => {
                 try {
+                  const spotify = document.querySelector('.spotify')
                   if (session.sessionId.startsWith("Spotify")) {
-                    document.querySelector('.spotify').classList.remove('notPlayingSpotify')
+                    spotify.classList.remove('notPlayingSpotify')
                     if (session.title.length > 30) {
                       return ' ' + session.title.substring(0, 30) + "..."
                     } else {
                       return ' ' + session.title
                     }
-                  } else {
-                    document.querySelector('.spotify').classList.add('notPlayingSpotify')
+                  }
+                  if (spotify.childNodes.length === 0) {
+                    spotify.classList.add('notPlayingSpotify')
                   }
                 } catch (e) {
                   return
                 }
               })
-            }</div>
+            }
+          </div>
         )}
 
       </div>
